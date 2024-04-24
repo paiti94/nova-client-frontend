@@ -1,0 +1,39 @@
+//.footer {
+    // background-color: #333; /* Example background color */
+    // color: #fff; /* Example text color */
+    // padding: 20px; /* Example padding */
+    // text-align: center; /* Example text alignment */
+    
+  //}
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Adjust the height according to your design */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Optional: center the content horizontally */
+    background-color: grey; /* Example background color */
+    color: white; /* Example text color */
+    font-weight: 600; /* Example font weight */
+  }
+  .footer nav {
+    margin-right: auto;
+  }
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+
+
+  p {
+    //margin: 0;
+  }
+
+  .spacer {
+    flex: 0.6;
+  }
