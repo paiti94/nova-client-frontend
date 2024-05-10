@@ -1,4 +1,4 @@
-
+<app-header></app-header>
 <div class="hero">
     <div class="hero-content">
         <h1>Welcome to Our Client Portal</h1>
@@ -6,6 +6,10 @@
         <a routerLink="/services" class="button">Explore Services</a>
     </div>
 </div>
+<div class="welcome-msg pt-3 pb-4">
+    <h1>Hi <span class="text-dark">{{user.name}}</span>, Welcome back</h1>
+    <p>You logged in as {{user.role}}</p>
+  </div>
 
 <div class="container">
     <div class="features">

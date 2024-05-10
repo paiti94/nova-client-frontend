@@ -1,0 +1,18 @@
+<!-- message.component.html -->
+
+<div>
+    <h2>WebSocket Messaging</h2>
+    
+    <div *ngIf="receivedMessages.length > 0">
+      <h3>Received Messages:</h3>
+      <ul>
+        <li *ngFor="let message of receivedMessages">{{ message }}</li>
+      </ul>
+    </div>
+    
+    <div>
+      <input type="text" [(ngModel)]="messageToSend" placeholder="Type a message...">
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+  
