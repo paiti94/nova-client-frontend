@@ -1,0 +1,89 @@
+<mat-toolbar color="primary">
+    <span>Internal Workspace</span>
+  </mat-toolbar>
+  
+  <div class="workspace-container">
+    <!-- Jobs Section -->
+    <div class="section">
+      <mat-card>
+        <div class="job-head" >
+        <mat-card-title>Jobs</mat-card-title>
+        <button mat-fab color="primary" (click)="openAddJobDialog()" aria-label="add Job">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        <mat-card-content>
+          <mat-tab-group>
+            <mat-tab label="Open">
+              <!-- Job List -->
+              <div *ngFor="let job of openJobs">
+                <div class="job-card-link" (click)="openJobDetailDialog(job)">
+                <mat-card class="job-card">
+                  <mat-card-header>
+                    <mat-card-title>{{ job.name }}</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>{{ job.description }}</p>
+                    <p>Status: {{ job.status }}</p>
+                    <p>Due Date: {{ job.due_Date | date: 'yyyy-MM-dd'  }}</p>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="Completed">
+              <!-- Completed Job List -->
+              <div *ngFor="let job of completedJobs">
+                <div class="job-card-link" (click)="openJobDetailDialog(job)">
+                <mat-card class="job-card">
+                  <mat-card-header>
+                    <mat-card-title>{{ job.name }}</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>{{ job.description }}</p>
+                    <p>Status: {{ job.status }}</p>
+                    <p>Due Date: {{ job.due_Date | date }}</p>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+    <!-- Pinned Section
+    <div class="section">
+      <mat-card>
+        <mat-card-title>Pinned</mat-card-title>
+        <mat-card-content>
+          <p>No pinned items</p>
+          <p>Use the pin button on tasks, emails, etc.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+   -->
+    <!-- Notes Section -->
+    <div class="section">
+      <mat-card>
+        <mat-card-title>Notes</mat-card-title>
+        <mat-card-content>
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Client Information</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Click here to add Client Information</p>
+            </mat-card-content>
+          </mat-card>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+    <!-- Emails Section -->
+    <div class="section">
+      <mat-card>
+        <mat-card-title>Emails</mat-card-title>
+        
+  

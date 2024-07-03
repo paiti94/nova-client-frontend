@@ -7,13 +7,17 @@ import { HomepageComponent } from './component/homepage/homepage.component';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { ProfileComponent } from './component/profile/profile.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FooterComponent } from './component/footer/footer.component';
@@ -21,7 +25,27 @@ import { ClientsComponent } from './component/clients/clients.component';
 import { MessageComponent } from './component/message/message.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { HeaderComponent } from './component/header/header.component';
+import { UsersComponent } from './component/users/users.component';
+import { ClientModalComponent } from './component/client-modal/client-modal.component';
+import { AdminServiceService } from './service/adminservice.service';
+import { CsrfInterceptor } from './service/csrf.interceptor';
+import { WorkspaceComponent } from './component/workspace/workspace.component';
+import { MatListModule } from '@angular/material/list';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { AddJobModalComponent } from './component/add-job-modal/add-job-modal.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatRadioModule } from '@angular/material/radio';
 
+
+import { DatePipe } from '@angular/common';
+import { JobDetailModalComponent } from './component/job-detail-modal/job-detail-modal.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { TaskModalComponent } from './component/task-modal/task-modal.component';
+import { ClientWorkspaceComponent } from './component/client-workspace/client-workspace.component';
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
@@ -32,8 +56,12 @@ function initializeKeycloak(keycloak: KeycloakService) {
       },
       initOptions: {
         pkceMethod: 'S256',
-        redirectUri: 'http://localhost:4200/dashboard',
-      },loadUserProfileAtStartUp: false
+        redirectUri: 'http://localhost:4200/home',
+        // checkLoginIframe: false,
+        // onLoad: 'check-sso',
+      },
+      loadUserProfileAtStartUp: false,
+      // bearerExcludedUrls: ['/assets'],
     });
 }
 
@@ -47,7 +75,14 @@ function initializeKeycloak(keycloak: KeycloakService) {
     FooterComponent,
     ClientsComponent,
     MessageComponent,
-    HeaderComponent
+    HeaderComponent,
+    UsersComponent,
+    ClientModalComponent,
+    WorkspaceComponent,
+    AddJobModalComponent,
+    JobDetailModalComponent,
+    TaskModalComponent,
+    ClientWorkspaceComponent
   ],
   imports: [
     BrowserModule,
@@ -57,9 +92,24 @@ function initializeKeycloak(keycloak: KeycloakService) {
     MatButtonModule,
     MatFormFieldModule,
     MatCardModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatDatepickerModule,
+    MatListModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatNativeDateModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatIconModule,
+    MatSelectModule,
+    MatRadioModule,
+    DatePipe,
+    MatSlideToggleModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',
       headerName: 'X-XSRF-TOKEN',
@@ -68,13 +118,16 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
   ],
   providers: [
+    DatePipe,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService],
     },
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    AdminServiceService,
+    { provide: HTTP_INTERCEPTORS, useClass: CsrfInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

@@ -14,7 +14,9 @@
        <nav>
              <a routerLink="/" routerLinkActive="active">Home</a>
              <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-             <a routerLink="/users" routerLinkActive="active">Profile</a>
+             <a routerLink="/profile" routerLinkActive="active">Profile</a>
+             <a *ngIf="isAdmin" routerLink="/users" routerLinkActive="active">Admin</a>
+             <a *ngIf="isAdmin" routerLink="/clients" routerLinkActive="active">Clients</a>
        </nav>
   
       <div class="spacer"></div>

@@ -1,0 +1,99 @@
+.workspace-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    .section {
+        margin-bottom: 20px;
+    
+        .job-head {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+    
+        .job-card-link {
+          text-decoration: none;
+          display: block;
+          margin-bottom: 10px;
+    
+          &:hover {
+            .job-card {
+              transform: scale(1.02);
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+              cursor: pointer;
+            }
+          }
+        }
+    
+        .job-card {
+          cursor: pointer;
+          transition: transform 0.2s, box-shadow 0.2s;
+    
+          mat-card-header {
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+          }
+    
+          mat-card-content {
+            padding: 16px;
+    
+            p {
+              margin: 0 0 8px;
+            }
+          }
+        }
+      }
+  }
+
+  ::ng-deep .mat-tab-group {
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    padding: 10px;
+  }
+  
+  ::ng-deep .mat-tab-label {
+    background-color: #1976d2;
+    color: white;
+    border-radius: 15px;
+    margin: 0 5px;
+    transition: background-color 0.3s, transform 0.3s;
+  
+    &:hover {
+      background-color: #1565c0;
+      transform: scale(1.05);
+    }
+  }
+  
+  ::ng-deep .mat-tab-label-active {
+    background-color: #2196f3;
+    border-radius: 15px;
+  }
+  
+  ::ng-deep .mat-ink-bar {
+    background-color: #ff4081;
+  }
+  
+  
+  .section {
+    flex: 1;
+    margin: 8px;
+  }
+  
+  .job-card {
+    margin: 8px 0;
+    // margin-bottom: 10px;
+  }
+  
+  mat-toolbar {
+    margin-bottom: 16px;
+  }
+ 
+  
+  .job-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Or flex-start, depending on your design preference */
+    margin:10px;
+  }
+  
+ 

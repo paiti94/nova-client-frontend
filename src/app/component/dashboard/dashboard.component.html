@@ -6,7 +6,7 @@
 
     <div class="welcome-msg pt-3 pb-4">
       <h1>Hi <span class="text-dark">{{user.name}}</span>, Welcome back</h1>
-      <p>You logged in as {{user.role}}</p>
+      <!-- <p>You logged in as {{user.role}}</p> -->
       
     </div>
 
@@ -15,18 +15,18 @@
       <div class="row">
         <div class="col-xl-6 pr-xl-2">
           <div class="row">
-            <div class="col-sm-6 pr-sm-2 statistics-grid" routerLink="/users">
+            <div class="col-sm-6 pr-sm-2 statistics-grid" routerLink="/clients">
               <div class="card card_border border-primary-top p-4">
                 <i style="font-size: 3em; color : #343a40;" class="fa fa-user-circle-o"> </i>
-                <h3 class="text-dark number">Account</h3>
-                <p class="stat-text">View account details</p>
+                <h3 class="text-dark number">Clients & Workspace</h3>
+                <p class="stat-text">View Clients & Workspace</p>
               </div>
             </div>
             <div class="col-sm-6 pl-sm-2 statistics-grid" routerLink="/myBalance">
               <div class="card card_border border-primary-top p-4">
                 <i style="font-size: 3em; color : #343a40;" class="fa fa-usd"> </i>
-                <h3 class="text-dark number">Balance</h3>
-                <p class="stat-text">View total available balance</p>
+                <h3 class="text-dark number">Dashboard</h3>
+                <p class="stat-text">View Dashboard</p>
               </div>
             </div>
           </div>
@@ -36,15 +36,15 @@
             <div class="col-sm-6 pr-sm-2 statistics-grid" routerLink="/myLoans">
               <div class="card card_border border-primary-top p-4">
                 <i style="font-size: 3em; color : #343a40;" class="fa fa-money"> </i>
-                <h3 class="text-dark number">Loans</h3>
-                <p class="stat-text">View Loan Details</p>
+                <h3 class="text-dark number">Settings</h3>
+                <p class="stat-text">Setup & Settings</p>
               </div>
             </div>
             <div class="col-sm-6 pl-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4" routerLink="/myCards">
                 <i style="font-size: 3em; color : #343a40;" class="fa fa-credit-card"> </i>
-                <h3 class="text-dark number">Cards</h3>
-                <p class="stat-text">View credit card details</p>
+                <h3 class="text-dark number">Templates</h3>
+                <p class="stat-text">View & Edit Templates</p>
               </div>
             </div>
           </div>

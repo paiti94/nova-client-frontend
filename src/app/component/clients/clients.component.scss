@@ -1,0 +1,36 @@
+.client-container{
+    // max-width: 600px;
+    margin: 50px auto;
+    padding-left: 20px;
+    // background-color: white;
+    // border-radius: 8px;
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .selected-item {
+    background-color: #e2e3e5;
+    /* Add other custom styles here */
+  }
+
+  .mat-elevation-z8{
+    width: fit-content;
+    flex: 0 0 auto;
+    margin-right: 20px;
+  }
+
+  .client-list-container{
+    display: flex;
+  }
+  
+  .client-details-container {
+    flex: 1;
+  }
+  
+
+  button{
+    margin: 10px 10px 10px 10px;
+  }
+  
+  .client-list-header{
+    margin: 10px;
+  }

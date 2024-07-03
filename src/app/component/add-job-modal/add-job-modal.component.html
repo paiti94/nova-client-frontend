@@ -1,0 +1,113 @@
+<div class="modal-content">
+  <div class="main-content">
+  <form (ngSubmit)="onSubmit()" #jobForm="ngForm" class="job-form">
+    <mat-form-field class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="job.name" name="name" required>
+      <mat-error *ngIf="jobForm.controls['name']?.invalid && jobForm.controls['name']?.touched">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="job.description" name="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Urgency</mat-label>
+      <input matInput [(ngModel)]="job.urgency" name="urgency">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Repeat</mat-label>
+      <input matInput [(ngModel)]="job.repeat" name="repeat">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Start Date *</mat-label>
+      <input matInput [(ngModel)]="job.start_Date" name="start_Date" [matDatepicker]="picker1">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+      <mat-error *ngIf="jobForm.controls['start_Date']?.invalid && jobForm.controls['start_Date']?.touched">
+        Start Date is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Due Date *</mat-label>
+      <input matInput [(ngModel)]="job.due_Date" name="dueDate" [matDatepicker]="picker2">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+      <mat-error *ngIf="jobForm.controls['dueDate']?.invalid && jobForm.controls['dueDate']?.touched">
+        Due Date is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="job.status" name="status" required>
+        <mat-option value="Open">Open</mat-option>
+        <mat-option value="In Progress">In Progress</mat-option>
+        <mat-option value="On Hold">On Hold</mat-option>
+        <mat-option value="Completed">Completed</mat-option>
+      </mat-select>
+      <mat-error *ngIf="jobForm.controls['status']?.invalid && jobForm.controls['status']?.touched">
+        Status is required
+      </mat-error>
+    </mat-form-field>
+
+    <div class="tags-section">
+      <label>Tags</label>
+      <div class="tag-container">
+        <div *ngFor="let tag of jobTags" class="tag">
+          {{ tag.name }}
+          <button type="button" class="remove-tag" (click)="removeTag(tag)">x</button>
+        </div>
+      </div>
+      <mat-form-field class="full-width">
+        <mat-label>Select Tag</mat-label>
+        <mat-select [(ngModel)]="newTagName" name="selectedTag">
+          <mat-option *ngFor="let tag of allTags" [value]="tag.name">{{ tag.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button type="button" class="add-tag-button" color="primary" (click)="addTag()">Add Tag</button>
+    </div>
+
+    <mat-form-field class="full-width">
+      <mat-label>Assigned To *</mat-label>
+      <mat-select [(ngModel)]="selectedAssignedTo" name="assignedTo">
+        <mat-option *ngFor="let admin of adminUsers" [value]="admin">{{ admin.first_name }} {{ admin.last_name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="jobForm.controls['assignedTo']?.invalid && jobForm.controls['assignedTo']?.touched">
+        Assigned To is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Assigned By *</mat-label>
+      <mat-select [(ngModel)]="selectedAssignedBy" name="assignedBy">
+        <mat-option *ngFor="let admin of adminUsers" [value]="admin">{{ admin.first_name }} {{ admin.last_name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="jobForm.controls['assignedBy']?.invalid && jobForm.controls['assignedBy']?.touched">
+        Assigned By is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Comments</mat-label>
+      <textarea matInput [(ngModel)]="newComment" name="comments"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Files</mat-label>
+      <input matInput [(ngModel)]="job.files" name="files">
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" type="submit">Add Job</button>
+      <button mat-raised-button (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+  </div>
+</div>

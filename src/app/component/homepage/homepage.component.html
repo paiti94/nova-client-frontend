@@ -1,53 +1,37 @@
 <app-header></app-header>
 <div class="hero">
-    <div class="hero-content">
-        <h1>Welcome to Our Client Portal</h1>
-        <p>Manage your account and access our services with ease.</p>
-        <a routerLink="/services" class="button">Explore Services</a>
-    </div>
-</div>
-<div class="welcome-msg pt-3 pb-4">
-    <h1>Hi <span class="text-dark">{{user.name}}</span>, Welcome back</h1>
-    <p>You logged in as {{user.role}}</p>
-  </div>
-
-<div class="container">
-    <div class="features">
-        <h2>Features</h2>
-        <div class="feature-item">
-            <i class="fas fa-chart-line"></i>
-            <h3>Real-time Dashboard</h3>
-            <p>View your account summary and activities in real-time.</p>
+    <section class="hero">
+        <div class="hero-content">
+          <h1>Welcome to Nova Tax Client Management</h1>
+          <p>Efficiently manage your clients and streamline your tax and accounting services with our comprehensive CRM solution.</p>
+          <a href="#contact" class="btn-primary">Get Started</a>
         </div>
-        <div class="feature-item">
-            <i class="fas fa-calendar-alt"></i>
-            <h3>Appointment Scheduling</h3>
-            <p>Schedule appointments with our team at your convenience.</p>
+      </section>
+      <div class="welcome-msg pt-3 pb-4">
+        <h1>Hi <span class="text-dark">{{user.name}}</span>, Welcome back</h1>
+        <!-- <p>You logged in as {{user.role}}</p> -->
+      </div>
+    <section class="features">
+        <h2>Key Features</h2>
+        <div class="feature-cards">
+          <div class="feature-card">
+            <h3>Client Management</h3>
+            <p>Keep track of all your clients' details, documents, and communication in one place.</p>
+            <a href="#client-management" class="btn-secondary">Learn More</a>
+          </div>
+          <div class="feature-card">
+            <h3>Task Automation</h3>
+            <p>Automate repetitive tasks to save time and improve productivity.</p>
+            <a href="#task-automation" class="btn-secondary">Learn More</a>
+          </div>
+          <div class="feature-card">
+            <h3>Analytics & Reporting</h3>
+            <p>Generate detailed reports and analytics to gain insights into your business.</p>
+            <a href="#analytics-reporting" class="btn-secondary">Learn More</a>
+          </div>
         </div>
-        <div class="feature-item">
-            <i class="fas fa-cog"></i>
-            <h3>Customizable Settings</h3>
-            <p>Customize your preferences and settings to suit your needs.</p>
-        </div>
-        <!-- Add more feature items as needed -->
-    </div>
-
-    <div class="testimonials">
-        <h2>Client Testimonials</h2>
-        <div class="testimonial">
-            <blockquote>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam felis non tellus malesuada fermentum."
-            </blockquote>
-            <cite>- John Doe</cite>
-        </div>
-        <div class="testimonial">
-            <blockquote>
-                "Sed cursus velit euismod justo hendrerit, id tincidunt nunc suscipit. Duis vehicula magna eu justo dapibus."
-            </blockquote>
-            <cite>- Jane Smith</cite>
-        </div>
-        <!-- Add more testimonials as needed -->
-    </div>
+      </section>
+  
 </div>
 
 <footer>

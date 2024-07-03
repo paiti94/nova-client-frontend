@@ -10,13 +10,16 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60px; /* Adjust the height according to your design */
+    height: 75px; /* Adjust the height according to your design */
     display: flex;
     align-items: center;
     justify-content: center; /* Optional: center the content horizontally */
     background-color: grey; /* Example background color */
     color: white; /* Example text color */
     font-weight: 600; /* Example font weight */
+    text-align: center;
+    position: relative; /* Ensure the footer stays at the bottom */
+    z-index: 0; /* Ensure the footer stays on top of other elements */
   }
   .footer nav {
     margin-right: auto;

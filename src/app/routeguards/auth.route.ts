@@ -14,6 +14,7 @@ import { KeycloakProfile } from 'keycloak-js';
 export class AuthKeyClockGuard extends KeycloakAuthGuard {
   user = new User();
   public userProfile: KeycloakProfile | null = null;
+
   constructor(
     protected override readonly router: Router,
     protected readonly keycloak: KeycloakService
@@ -32,6 +33,7 @@ export class AuthKeyClockGuard extends KeycloakAuthGuard {
       });
     }else{
         this.userProfile = await this.keycloak.loadUserProfile();
+     
         this.user.authStatus = 'AUTH';
         // console.log(JSON.stringify(this.userProfile));
         this.user.name = this.userProfile.firstName || "";
@@ -41,6 +43,7 @@ export class AuthKeyClockGuard extends KeycloakAuthGuard {
 
     // Get the roles required from the route.
     const requiredRoles = route.data["roles"];
+    // how to get roles from keycloak and store in session then allow the admin to be able to access all routes, but the user to limited routes
 
     console.log(JSON.stringify(requiredRoles));
 
@@ -52,4 +55,24 @@ export class AuthKeyClockGuard extends KeycloakAuthGuard {
     // Allow the user to proceed if all the required roles are present.
     return requiredRoles.some((role) => this.roles.includes(role));
   }
+
+  private async checkRoles(requiredRoles: string[], url: string): Promise<boolean> {
+    if (!requiredRoles || requiredRoles.length === 0) {
+      return true;
+    }
+    const isLoggedIn = await this.keycloak.isLoggedIn();
+    if (!isLoggedIn) {
+      this.keycloak.login({ redirectUri: window.location.origin + url });
+      return false;
+    }
+    const userRoles = this.keycloak.getUserRoles();
+    const hasRequiredRoles = requiredRoles.every(role => userRoles.includes(role));
+
+    if (!hasRequiredRoles) {
+      this.router.navigate(['access-denied']);
+    }
+
+    return hasRequiredRoles;
+  }
+
 }

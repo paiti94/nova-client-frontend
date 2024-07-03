@@ -1,1 +1,69 @@
-<p>clients works!</p>
+<app-header></app-header>
+<div class="main-container">
+  <div class="client-list-container">
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <div class="mat-elevation-z8">
+      <h1 class="client-list-header">Client List</h1>
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. email">
+      </mat-form-field>
+      <mat-nav-list>
+        <a mat-list-item *ngFor="let client of dataSource.data; let i = index" (click)="selectItem(client, $event)" [ngClass]="{'selected-item': client === selectedClient}" >
+          {{ client.first_name }} {{ client.last_name }}
+        </a>
+      </mat-nav-list>
+      <button (click)="addClient()" class="btn btn-primary">Add New Client</button>
+    </div>
+  
+    <div class="client-details-container" *ngIf="selectedClient">
+      <div class="client-details-header">
+        <h2>{{ selectedClient?.first_name }} {{ selectedClient?.last_name }}</h2>
+        <div class="tags">
+          <span *ngFor="let tag of (selectedClient?.tags ?? '').split(',')" class="tag">{{ tag }}</span>
+        </div>
+      </div>
+      <mat-tab-group [selectedIndex]="selectedTabIndex" (selectedIndexChange)="onTabChange($event)">
+        <mat-tab label="Client Workspace">
+          <ng-container *ngIf="selectedClientKey">
+            <app-client-workspace [clientId]="selectedClient?.id || 0" [key]="selectedClientKey" [client]="selectedClient"></app-client-workspace>
+          </ng-container>
+        </mat-tab>
+        <mat-tab label="Client Details">
+          <div class="client-info">
+            <h3>Client Info</h3>
+            <p><strong>Client Workspace Name:</strong> {{ selectedClient?.first_name }}</p>
+            <p><strong>Tags:</strong> {{ selectedClient?.tags }}</p>
+          </div>
+          <div class="client-details">
+            <h3>Client Details</h3>
+            <p><strong>Company Name:</strong> {{ selectedClient?.company_info }}</p>
+            <p><strong>Email:</strong> {{ selectedClient?.email }}</p>
+            <p><strong>Phone:</strong> {{ selectedClient?.phone_number }}</p>
+            <p><strong>Address:</strong> {{ selectedClient?.address }}</p>
+            <p><strong>City:</strong> {{ selectedClient?.city }}</p>
+            <p><strong>Province:</strong> {{ selectedClient?.province }}</p>
+            <p><strong>Postal Code:</strong> {{ selectedClient?.postal_code }}</p>
+            <p><strong>Country:</strong> {{ selectedClient?.country }}</p>
+            <p><strong>Birthday:</strong> {{ selectedClient?.date_of_birth | date:'shortDate' }}</p>
+            <p><strong>Status:</strong> {{ selectedClient?.status }}</p>
+            <p><strong>Tax ID:</strong> {{ selectedClient?.tax_id_number }}</p>
+            <p><strong>Business Type:</strong> business type?</p>
+            <p><strong>Website:</strong> website?</p>
+            <p><strong>Fiscal Year End:</strong> Fiscal Year?</p>
+            <p><strong>CRA Business Number:</strong> CRA Business Number</p>
+          </div>
+        </mat-tab>
+        <mat-tab label="File Manager">
+          <!-- File Manager Content -->
+        </mat-tab>
+        <mat-tab label="Internal Workspace">
+          <ng-container *ngIf="selectedClientKey">
+            <app-workspace [clientId]="selectedClient?.id || 0" [key]="selectedClientKey"></app-workspace>
+          </ng-container>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

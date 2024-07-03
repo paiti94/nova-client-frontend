@@ -1,0 +1,34 @@
+<app-header></app-header>
+<div class="admin-container" *ngIf="isAdmin">
+    <h1>Manage Users</h1>
+    <div class="form-group">
+        <label for="user-select">Select User:</label>
+        <select id="user-select" [(ngModel)]="selectedUserId" class="form-control">
+            <option *ngFor="let user of users" [value]="user.id">{{ user.username }}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="role-select">Role Name:</label>
+        <select id="role-select" [(ngModel)]="selectedRoleId" (change)="onRoleChange($event)" class="form-control">
+            <option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</option>
+        </select>
+    </div>
+    <button (click)="addRole()" class="btn btn-primary ">Add Role</button>
+</div>
+<div class="tag-library" *ngIf="isAdmin">
+    <h1>Tag Library</h1>
+    <div class="form-group">
+        <label for="new-tag">New Tag:</label>
+        <input id="new-tag" [(ngModel)]="newTagName" class="form-control" placeholder="Enter tag name">
+        <button (click)="createTag()" class="btn btn-primary">Add Tag</button>
+    </div>
+    <div class="tag-list">
+        <h2>Existing Tags:</h2>
+        <div class="tags">
+            <span *ngFor="let tag of tags" [ngClass]="getTagClass(tag)" class="tag">{{ tag.name }}</span>
+        </div>
+    </div>
+</div>
+<div class="no-permission" *ngIf="!isAdmin">
+    <p>You do not have permission to manage users.</p>
+</div>

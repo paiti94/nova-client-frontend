@@ -1,0 +1,116 @@
+/* client-workspace.component.css */
+
+.client-workspace {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+  
+  .client-info {
+    background-color: #fff;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .client-info h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .section {
+    margin: 8px;
+  }
+  
+  .task-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .task.closed {
+    background-color: #f0f0f0;
+  }
+  
+  .task-card {
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .task-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .task-card mat-card-header {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .task-card mat-card-content {
+    padding: 16px;
+  }
+  
+  .task-card mat-card-content p {
+    margin: 0 0 8px;
+  }
+  
+  .new-task {
+    margin-top: 16px;
+  }
+  
+  .new-task button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .new-task button:hover {
+    background-color: #218838;
+  }
+  
+  /* Mat-Tab Styles */
+  ::ng-deep .mat-tab-group {
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    padding: 10px;
+  }
+  
+  ::ng-deep .mat-tab-label {
+    background-color: #1976d2;
+    color: white;
+    border-radius: 15px;
+    margin: 0 5px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  ::ng-deep .mat-tab-label:hover {
+    background-color: #1565c0;
+    transform: scale(1.05);
+  }
+  
+  ::ng-deep .mat-tab-label-active {
+    background-color: #2196f3;
+    border-radius: 15px;
+  }
+  
+  ::ng-deep .mat-ink-bar {
+    background-color: #ff4081;
+  }
+  

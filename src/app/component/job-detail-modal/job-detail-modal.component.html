@@ -1,0 +1,108 @@
+<div class="modal-container">
+  <header>
+    <h1>{{ job.name }}</h1>
+    <button mat-icon-button (click)="close()" class="close-button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+  <div class="main-content">
+    <div class="job-header">
+      <p>{{ job.description }}</p>
+    </div>
+    <div class="job-details">
+      <div class="detail-row">
+        <div class="detail-item">
+          <label>Assigned To</label>
+          <input matInput [(ngModel)]="job.assignedTo.first_name" placeholder="First Name">
+          <input matInput [(ngModel)]="job.assignedTo.last_name" placeholder="Last Name">
+        </div>
+        <div class="detail-item">
+          <label>Urgency</label>
+          <mat-slide-toggle [(ngModel)]="job.urgency">Urgent</mat-slide-toggle>
+        </div>
+        <div class="detail-item">
+          <label>Repeat</label>
+          <mat-slide-toggle [(ngModel)]="job.repeat">Repeat</mat-slide-toggle>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-item">
+          <label>Start Date</label>
+          <input matInput [(ngModel)]="job.start_Date" [matDatepicker]="picker1">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </div>
+        <div class="detail-item">
+          <label>Due Date</label>
+          <input matInput [(ngModel)]="job.due_Date" [matDatepicker]="picker2">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-item">
+          <mat-form-field>
+          <mat-label>Status</mat-label>
+          <mat-select [(ngModel)]="job.status" name="status" required>
+            <mat-option value="Open">Open</mat-option>
+            <mat-option value="In Progress">In Progress</mat-option>
+            <mat-option value="On Hold">On Hold</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="tags-section">
+      <label>Tags</label>
+      <div class="tag-container">
+        <div *ngFor="let tag of jobTags" class="tag">
+          {{ tag.name }}
+          <button type="button" class="remove-tag" (click)="removeTag(tag)">x</button>
+        </div>
+      </div>
+      <mat-form-field class="full-width">
+        <mat-label>Select Tag</mat-label>
+        <mat-select [(ngModel)]="newTagName" name="selectedTag">
+          <mat-option *ngFor="let tag of allTags" [value]="tag.name">{{ tag.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+       <button mat-raised-button type="button" class="add-tag-button" color="primary" (click)="addTag()">Add Tag</button>
+      </div>
+    </div>
+
+    <div class="tasks-section">
+      <h2>Tasks</h2>
+      <button mat-button (click)="addTask()">+ Add Task</button>
+      <mat-card *ngFor="let task of tasks" class="task-card">
+        <button type="button" class="remove-task" (click)="removeTask(task)">x</button>
+        <mat-card-title class="task-title">{{ task.name }}</mat-card-title>
+        <mat-card-content>
+          <p>{{ task.description }}</p>
+          <p>Status: {{ task.status }}</p>
+          <p>Due Date: {{ task.due_Date | date: 'yyyy-MM-dd' }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="attachments-section">
+      <h2>Attachments</h2>
+      <button mat-button>+ Select files</button>
+    </div>
+
+    <div class="comments-section">
+      <h2>Comments</h2>
+      <textarea matInput [(ngModel)]="newComment" placeholder="Add a comment"></textarea>
+      <div> <button mat-button (click)="addComment()">Add Comment</button></div>
+      <mat-card *ngFor="let comment of job.comments" class="comment-card">
+        <mat-card-content>{{ comment }}</mat-card-content>
+      </mat-card>
+    </div>
+    
+    <div class="modal-actions">
+      <button mat-raised-button color="primary" (click)="updateJob()">Save</button>
+      <button mat-raised-button color="warn" (click)="deleteJob()">Delete</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+  }
+  
+  .admin-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px 20px 0px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .tag-library {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px 20px 0px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+
+  .tag {
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+    color: white;
+}
+
+.tag-color-1 { background-color: #3498db; }
+.tag-color-2 { background-color: #2ecc71; }
+.tag-color-3 { background-color: #e74c3c; }
+.tag-color-4 { background-color: #f39c12; }
+.tag-color-5 { background-color: #9b59b6; }
+/* Add more colors as needed */

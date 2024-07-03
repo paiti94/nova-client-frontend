@@ -1,0 +1,101 @@
+.modal-content {
+    // max-height: 80vh;
+    // overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; // Adjust this to fit your needs
+    overflow-y: auto; // Enable vertical scrolling
+    //padding: 20px;
+   // max-width: 1500px;
+    background: white;
+   // margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto', sans-serif;
+    .main-content {
+      flex: 1;
+      padding: 16px;
+    //  max-width: 1000px;
+      overflow-y: auto; // Ensure this is set to auto
+  
+      .job-header, .job-details, .tags-section, .tasks-section, .attachments-section, .comments-section {
+        margin-bottom: 16px;
+      }
+  
+      .detail-row {
+        display: flex;
+        justify-content: space-between;
+      }
+  
+      .detail-item {
+        flex: 1;
+        margin-right: 16px;
+        
+        &:last-child {
+          margin-right: 0;
+        }
+  
+        label {
+          display: block;
+          font-weight: bold;
+        }
+  
+        p, input, mat-slide-toggle {
+          margin: 8px 0;
+        }
+      }
+  
+      .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 16px;
+  
+        button {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+  
+  .job-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .tags-section {
+    margin-top: 16px;
+  }
+  
+  .tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  
+  .tag {
+    background-color: #e0e0e0;
+    border-radius: 16px;
+    padding: 4px 8px;
+    margin: 4px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .remove-tag {
+    background: none;
+    border: none;
+    margin-left: 4px;
+    cursor: pointer;
+  }
+  
+  .add-tag-button {
+    margin-top: 8px;
+    
+  }
+
+  
+  
