@@ -75,7 +75,7 @@
     <div class="tasks-section">
       <h2>Tasks</h2>
       <button mat-button (click)="addTask()">+ Add Task</button>
-      <mat-card *ngFor="let task of tasks" class="task-card">
+      <mat-card *ngFor="let task of tasks" class="task-card" (click)="openTaskDetailDialog(task)">
         <button type="button" class="remove-task" (click)="removeTask(task)">x</button>
         <mat-card-title class="task-title">{{ task.name }}</mat-card-title>
         <mat-card-content>

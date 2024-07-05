@@ -169,4 +169,8 @@ export class AdminServiceService {
   deleteTag(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiTagUrl}/${id}`);
   }
+
+  uploadFiles(formData: FormData): Observable<any> {
+    return this.http.post(`${environment.backendApi}/upload`, formData);
+  }
 }

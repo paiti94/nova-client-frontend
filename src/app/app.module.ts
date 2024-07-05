@@ -39,13 +39,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { NgxFileDropModule } from 'ngx-file-drop';
 
 import { DatePipe } from '@angular/common';
 import { JobDetailModalComponent } from './component/job-detail-modal/job-detail-modal.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { TaskModalComponent } from './component/task-modal/task-modal.component';
 import { ClientWorkspaceComponent } from './component/client-workspace/client-workspace.component';
+import { TaskDetailModalComponent } from './component/task-detail-modal/task-detail-modal.component';
+import { FileUploadComponent } from './component/file-upload/file-upload.component';
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
@@ -82,7 +85,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
     AddJobModalComponent,
     JobDetailModalComponent,
     TaskModalComponent,
-    ClientWorkspaceComponent
+    ClientWorkspaceComponent,
+    TaskDetailModalComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +113,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
     MatIconModule,
     MatSelectModule,
     MatRadioModule,
+    MatDialogModule,
     DatePipe,
+    NgxFileDropModule,
     MatSlideToggleModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',

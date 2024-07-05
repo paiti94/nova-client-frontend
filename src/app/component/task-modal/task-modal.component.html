@@ -1,4 +1,5 @@
-<form (ngSubmit)="addTask()" #taskForm="ngForm">
+<mat-dialog-content>
+<form #taskForm="ngForm">
     <div class="modal-content">
       <mat-form-field>
         <mat-label>Name</mat-label>
@@ -51,12 +52,12 @@
         <mat-label>Notes</mat-label>
         <textarea matInput [(ngModel)]="task.notes" name="notes"></textarea>
       </mat-form-field>
-  
-
-      <div mat-dialog-actions>
-        <button mat-raised-button color="primary" type="submit">Add Task</button>
-        <button mat-raised-button (click)="onCancel()">Cancel</button>
-      </div>
     </div>
-  </form>
-  
+  </form> 
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" type="submit" (click)="addTask()">Add Task</button>
+      <button mat-raised-button (click)="onCancel()">Cancel</button>
+    </div>
+</mat-dialog-actions>

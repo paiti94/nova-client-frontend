@@ -6,6 +6,7 @@
   import { Tag } from '../../model/tag.model';
   import { Task } from '../../model/task.model';
   import { TaskModalComponent } from '../task-modal/task-modal.component';
+import { TaskDetailModalComponent } from '../task-detail-modal/task-detail-modal.component';
 
   @Component({
     selector: 'app-job-detail-modal',
@@ -73,6 +74,8 @@
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.loadTasks();
+        }else{
+          console.log("No task added");
         }
       });
     }
@@ -93,8 +96,6 @@
         tags: this.jobTags.map(tag => tag.name).join(','),
         tasks: this.tasks,
       };
-
-      console.log(updatedJob);
       this.adminService.updateJob(this.job.id, updatedJob).subscribe(
         response => {
           alert('Job updated successfully');
@@ -163,5 +164,16 @@
       );
     }
 
-    
+    openTaskDetailDialog(task: Task){
+      const dialogRef = this.dialog.open(TaskDetailModalComponent, {
+        width: '1000px',
+        data: task
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          // Handle the result if needed
+        }
+      });
+    }
   }
