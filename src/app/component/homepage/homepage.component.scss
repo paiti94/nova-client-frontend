@@ -1,87 +1,102 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .container {
-    width: 80%;
-    margin: 0 auto;
-  }
-  
-  .hero {
-    // background-image: url('/src/assets/images/Galaxy_edited_edited.jpg');
-    background-size: cover;
-    color: black;
-    padding: 100px 0;
-    text-align: center;
-  }
 
-  .welcome-msg{
+.hero-content{
+  background-image: url('/../../assets/img/nova-tax.jpg');
+  background-size: cover; 
+  height: 500px;
+  .hero-content-letter{
+    text-align: center;
+    padding-top: 200px;
+    h1, p{
+      color: white;
+      font-weight: 300;
+    }
+  }
+}
+
+.welcome-msg{
+  color: black;
+  padding: 100px 0;
+  text-align: center;
+  h1{
+    font-weight: 300;
+  }
+}
+
+.hero .btn-primary {
+  background-color: #007bff;
+  color: black;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.features {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.feature-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.feature-card {
+  width: 30%;
+  height: 15vh;
+  padding: 0px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  h3{
     color: black;
-    padding: 100px 0;
-    text-align: center;
   }
-  
-  .hero .btn-primary {
-    background-color: #007bff;
-    color: black;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .features {
-    padding: 50px 0;
-    text-align: center;
-  }
-  
-  .feature-cards {
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .feature-card {
-    width: 30%;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .feature-card h3 {
-    color: #007bff;
-  }
-  
-  .btn-secondary {
-    background-color: #6c757d;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .about-us, .contact {
-    padding: 50px 0;
-    text-align: center;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-  }
-  
-  form button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+}
+
+.feature-card:hover {
+  width: 40%;
+  padding: 30px;
+  background-color: #e8e8e8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card h3 {
+  color: #007bff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-secondary:hover {
+  background-color: #0056b3;
+}
+
+.about-us, .contact {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -1,61 +1,42 @@
 <app-header></app-header>
-<div class="site-section">
-  <div class="container">
-    <div *ngIf="user; else loading">
-      <div class="row mb-4">
-        <div class="col-md-7">
-          <h2 class="heading-21921">Account Information</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="account-info mb-4">
-            <div class="form-group">
-              <label for="customerName">Name</label>
-              <input type="text" class="form-control" id="customerName" [value]="user.name" disabled/>
+<div class="hero">
+  <div class="site-section">
+    <div class="container">
+      <div *ngIf="user; else loading">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="header">
+              <h2 class="heading-21921">Account Information</h2>
             </div>
-            <div class="form-group">
-              <label for="customerEmail">Email</label>
-              <input type="email" class="form-control" id="customerEmail" [value]="user.email" disabled/>
-            </div>
-            <div class="form-group">
-              <label for="customerMobileNum">Mobile Number</label>
-              <input type="text" class="form-control" id="customerMobileNum" [value]="user.mobileNumber" disabled/>
+          </div>
+          <div class="col-md-6 text-right" >
+            <div class="account-info mb-4">
+              <div class="form-group">
+                <label for="customerName">Name</label>
+                <input type="text" class="form-control" id="customerName" [value]="user.name" disabled/>
+              </div>
+              <div class="form-group">
+                <label for="customerEmail">Email</label>
+                <input type="email" class="form-control" id="customerEmail" [value]="user.email" disabled/>
+              </div>
+              <div class="form-group">
+                <label for="customerMobileNum">Mobile Number</label>
+                <input type="text" class="form-control" id="customerMobileNum" [value]="user.mobileNumber" disabled/>
+              </div>
             </div>
           </div>
         </div>
-        <!-- <div class="col-md-6">
-          <div class="account-details mb-4">
-            <div class="form-group">
-              <label for="customerAccNo">Account Number</label>
-              <input type="text" class="form-control" id="customerAccNo" [value]="account.accountNumber" disabled/>
-            </div>
-            <div class="form-group">
-              <label for="customerAccountType">Account Type</label>
-              <input type="text" class="form-control" id="customerAccountType" [value]="account.accountType" disabled/>
-            </div>
-            <div class="form-group">
-              <label for="branchAddress">Branch Address</label>
-              <input type="text" class="form-control" id="branchAddress" [value]="account.branchAddress" disabled/>
-            </div>
+      </div>
+      <ng-template #loading>
+        <div class="row">
+          <div class="col text-center">
+            <p>Loading...</p>
           </div>
-        </div> -->
-      </div>
-      <div class="row mb-5">
-        <div class="col text-center">
-          <button class="btn btn-primary" routerLink="/dashboard">
-            BACK
-          </button>
         </div>
-      </div>
+      </ng-template>
     </div>
-    <ng-template #loading>
-      <div class="row">
-        <div class="col text-center">
-          <p>Loading...</p>
-        </div>
-      </div>
-    </ng-template>
   </div>
 </div>
-<app-footer></app-footer>
+<footer>
+  <app-footer></app-footer>
+</footer>

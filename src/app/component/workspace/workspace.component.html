@@ -1,9 +1,8 @@
-<mat-toolbar color="primary">
-    <span>Internal Workspace</span>
-  </mat-toolbar>
-  
-  <div class="workspace-container">
-    <!-- Jobs Section -->
+<div class="workspace-container">
+  <div class="client-info">
+    <h2>{{ clientName }}</h2>
+  </div>
+  <div class="folder-structure">
     <div class="section">
       <mat-card>
         <div class="job-head" >
@@ -15,7 +14,6 @@
         <mat-card-content>
           <mat-tab-group>
             <mat-tab label="Open">
-              <!-- Job List -->
               <div *ngFor="let job of openJobs">
                 <div class="job-card-link" (click)="openJobDetailDialog(job)">
                 <mat-card class="job-card">
@@ -32,7 +30,6 @@
               </div>
             </mat-tab>
             <mat-tab label="Completed">
-              <!-- Completed Job List -->
               <div *ngFor="let job of completedJobs">
                 <div class="job-card-link" (click)="openJobDetailDialog(job)">
                 <mat-card class="job-card">
@@ -64,7 +61,6 @@
       </mat-card>
     </div>
    -->
-    <!-- Notes Section -->
     <div class="section">
       <mat-card>
         <mat-card-title>Notes</mat-card-title>
@@ -80,10 +76,12 @@
         </mat-card-content>
       </mat-card>
     </div>
-  
-    <!-- Emails Section -->
     <div class="section">
       <mat-card>
         <mat-card-title>Emails</mat-card-title>
+      </mat-card>
+    </div>
+  </div>
+</div>
         
   

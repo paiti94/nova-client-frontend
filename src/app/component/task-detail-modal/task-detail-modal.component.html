@@ -1,1 +1,50 @@
-<p>task-detail-modal works!</p>
+<mat-dialog-content>
+    <form #taskForm="ngForm">
+        <div class="modal-content">
+          <h2 class="modal-title">Name</h2>
+          <p>{{task.name}}</p>
+     
+          <h2>Description</h2>
+          <p>{{task.description}}</p>
+        
+          <h2>Task Type</h2>
+          <p>{{task.type}}</p>
+      
+          <mat-form-field>
+            <mat-label>Priority</mat-label>
+            <mat-select [(ngModel)]="task.priority" name="priority">
+              <mat-option value="High">High</mat-option>
+              <mat-option value="Medium">Medium</mat-option>
+              <mat-option value="Low">Low</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <mat-label>Due Date</mat-label>
+            <input matInput [(ngModel)]="task.due_Date" name="due_date" [matDatepicker]="picker1">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select [(ngModel)]="task.status" name="status">
+              <mat-option value="Not Started">Not Started</mat-option>
+              <mat-option value="In Progress">In Progress</mat-option>
+              <mat-option value="Completed">Completed</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <mat-label>Notes</mat-label>
+            <textarea matInput [(ngModel)]="task.notes" name="notes"></textarea>
+          </mat-form-field>
+        </div>
+      </form> 
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <div mat-dialog-actions>
+          <button mat-raised-button color="primary" type="submit" (click)="saveTask()">Save</button>
+          <button mat-raised-button (click)="onCancel()">Cancel</button>
+        </div>
+    </mat-dialog-actions>

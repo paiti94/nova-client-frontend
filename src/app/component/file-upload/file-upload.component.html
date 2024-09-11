@@ -1,1 +1,60 @@
-<p>file-upload works!</p>
+<div class="file-container">
+        <div class="client-info">
+          <h2>{{ clientName }}</h2>
+        </div>
+        <div class="folder-structure">
+          <mat-grid-list cols="2" [style.height.px]="500">
+            <mat-grid-tile>
+              <div class="grid-tile-content">
+                <ng-container *ngIf="folderName != ''">
+                  <input type="text" [(ngModel)]="folderName" name="folderName" placeholder="Enter folder name">
+                  <button class="create-folder-button" mat-raised-button color="primary" (click)="createFolder(folderName)">
+                    Create
+                  </button>
+                </ng-container>
+                <button class="create-folder-button" mat-raised-button color="primary" (click)="getFolderName()" >
+                  Create Folder
+                </button>
+                <ul class="folder-list">
+                  <li *ngFor="let item of folderStructure">
+                    <span *ngIf="item.fileType === 'folder'" (click)="loadFolderStructure(clientId!, item.id)">
+                      📁 {{ item.fileName }}
+                    </span>
+                    <span *ngIf="item.fileType !== 'folder'">
+                      📄 {{ item.fileName }}
+                    </span>
+                  </li>
+                </ul>
+      
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="grid-tile-content">
+                <ngx-file-drop style="width: 100%; height: 350px"
+                (onFileDrop)="onFileDropped($event)" 
+                (onFileOver)="fileOver($event)" 
+                (onFileLeave)="fileLeave($event)"
+                [dropZoneLabel]="'Drag & Drop your files here or Click here to browse'"
+                [showBrowseBtn]="false"
+                (click)="triggerFileInput()"
+                [multiple]="true">
+                <div class="file-drop-zone">
+                  <p>Drag & Drop your files here Or Click here to browse</p>
+                </div>
+                </ngx-file-drop>
+                <input id="file-input" type="file" multiple (change)="onFileSelected($event)" hidden>
+              
+                <button class="submit-button btn btn-primary" mat-raised-button color="primary" (click)="uploadFiles('/shared')">Upload Files</button>
+              
+                <div class="file-info" *ngIf="displayFiles.length > 0">
+                  <h3>Selected Files:</h3>
+                  <ul>
+                    <li *ngFor="let file of displayFiles">{{ file.name }} ({{ file.size }} bytes)</li>
+                  </ul>
+                </div>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+  </div>
+  

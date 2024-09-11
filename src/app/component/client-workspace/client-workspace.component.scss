@@ -1,11 +1,35 @@
-/* client-workspace.component.css */
 
 .client-workspace {
     display: flex;
     flex-direction: column;
-    padding: 16px;
     background-color: #f9f9f9;
     font-family: Arial, sans-serif;
+
+    background-color: #fff;
+    margin-bottom: 16px;
+    border-radius: px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    height: 520px;
+    display: flex;
+    justify-content: space-between;
+
+    .task-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 20px;
+      button{
+        margin: 20px;
+      }
+    }
+    ::ng-deep .mat-mdc-card {
+      border-radius: 10px !important;
+    }
+    ::ng-deep .mat-mdc-card-header {
+      display: flow !important;
+      padding: 10px !important;
+    }
   }
   
   .client-info {
@@ -20,16 +44,6 @@
     margin: 0;
     font-size: 24px;
     color: #333;
-  }
-  
-  .section {
-    margin: 8px;
-  }
-  
-  .task-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
   
   .task {

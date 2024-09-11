@@ -1,10 +1,3 @@
-//.footer {
-    // background-color: #333; /* Example background color */
-    // color: #fff; /* Example text color */
-    // padding: 20px; /* Example padding */
-    // text-align: center; /* Example text alignment */
-    
-  //}
   .footer {
     position: fixed;
     bottom: 0;
@@ -14,9 +7,9 @@
     display: flex;
     align-items: center;
     justify-content: center; /* Optional: center the content horizontally */
-    background-color: grey; /* Example background color */
-    color: white; /* Example text color */
-    font-weight: 600; /* Example font weight */
+    background-color: white; /* Example background color */
+    color: black; /* Example text color */
+    font-weight: 400; /* Example font weight */
     text-align: center;
     position: relative; /* Ensure the footer stays at the bottom */
     z-index: 0; /* Ensure the footer stays on top of other elements */
@@ -25,7 +18,7 @@
     margin-right: auto;
   }
   .footer a {
-    color: #fff;
+    color: black;
     text-decoration: none;
     margin-right: 20px;
     font-size: 18px;

@@ -13,6 +13,7 @@ import { JobDetailModalComponent } from '../job-detail-modal/job-detail-modal.co
 export class WorkspaceComponent implements OnChanges {
   @Input() clientId: number = 0;
   @Input() key: string = '';
+  @Input() clientName: string = '';
   
   openJobs: Job[] = [];
   completedJobs: Job[] = [];

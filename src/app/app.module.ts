@@ -12,6 +12,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
@@ -49,6 +51,7 @@ import { TaskModalComponent } from './component/task-modal/task-modal.component'
 import { ClientWorkspaceComponent } from './component/client-workspace/client-workspace.component';
 import { TaskDetailModalComponent } from './component/task-detail-modal/task-detail-modal.component';
 import { FileUploadComponent } from './component/file-upload/file-upload.component';
+import { AddTaskModalComponent } from './component/add-task-modal/add-task-modal.component';
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
@@ -87,7 +90,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     TaskModalComponent,
     ClientWorkspaceComponent,
     TaskDetailModalComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    AddTaskModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,6 +104,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatExpansionModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -107,6 +112,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     MatListModule,
     MatTabsModule,
     MatToolbarModule,
+    MatGridListModule,
     MatNativeDateModule,
     MatChipsModule,
     MatAutocompleteModule,

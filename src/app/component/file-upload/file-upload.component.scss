@@ -1,24 +1,117 @@
+
+
+.client-info, .client-details, .file-manager {
+  background-color: #fff;
+  padding: 16px;
+  margin-bottom: 16px;
+  height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 520px;
+  p{
+    text-align: left;
+  }
+}
+
+.folder-structure{
+  background-color: #fff;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    height: 520px;
+}
+
+.client-info h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+.grid-tile-content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  padding: 20px 20px 20px 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .mat-grid-tile-content {
+  padding: 10px !important;
+}
+
+::ng-deep .ngx-file-drop__drop-zone{
+  height:300px !important;
+}
+
+.create-folder-button {
+  margin-top: 10px;
+  width: 35%;
+  left: 65%;
+}
+
+.folder-list{
+  margin-top: 30px;
+  list-style-type: none;
+  padding: 0;
+  li {
+    margin: 5px 0;
+    padding: 5px;
+ 
+  }
+}
+
+.file{
+  display: flex;
+}
+
+.file-upload-container,
+.file-list-container {
+  flex: 1;
+}
+
 .file-upload-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
-  
-  .file-drop-zone {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-    margin-bottom: 20px;
-    transition: border-color 0.3s;
-  
-    &.active {
-      border-color: #2196f3;
-    }
-  }
-  
-  button {
-    margin-top: 10px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.file-drop-zone {
+  border: 2px dashed #3f51b5;
+  border-radius: 5px;
+  padding: 20px;
+  width: 60%;
+  max-width: 200px;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  cursor: pointer; /* Make it look clickable */
+  transition: background-color 0.3s ease;
+}
+
+.submit-button{
+  width:35%;  
+  left:30%;
+}
+
+
+.file-drop-zone:hover {
+  background-color: #e0e0e0; /* Light grey background on hover */
+}
+
+.file-drop-zone p {
+  margin: 0;
+  color: #3f51b5;
+  font-weight: bold;
+}
+
+.file-info {
+  margin-top: 20px;
+  text-align: left;
+}
+

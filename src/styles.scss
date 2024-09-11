@@ -1,3 +1,42 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .hero {
+    // background-image: url('/src/assets/images/Galaxy_edited_edited.jpg');
+    background-size: cover;
+    color: black;
+    padding: 100px 0;
+    text-align: center;
+  }
+
+  .btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: grey;
+    --bs-btn-border-color: grey;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: black;
+  }
+
+  .mat-mdc-raised-button.mat-primary {
+    --mdc-protected-button-container-color: grey;
+    --mdc-protected-button-label-text-color: white;
+    --mat-protected-button-state-layer-color: white;
+    --mat-protected-button-ripple-color: black;
+  }
+
+  html .mat-mdc-fab.mat-primary {
+    --mdc-fab-container-color: grey;
+  }

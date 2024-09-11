@@ -1,22 +1,50 @@
+:host .hero{
+  padding:0px;
+  height: 90%;
+}
+
+.main-container{
+  background-color: white;
+  border-radius: 30px;
+  height: 95%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), /* Light shadow */
+              0 6px 20px rgba(0, 0, 0, 0.1); /* Darker shadow for depth */
+}
+
+.client-list-container{
+  padding:15px;
+  height: 100%;
+}
+
 .client-container{
-    // max-width: 600px;
     margin: 50px auto;
     padding-left: 20px;
-    // background-color: white;
-    // border-radius: 8px;
-    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   .selected-item {
     background-color: #e2e3e5;
-    /* Add other custom styles here */
   }
 
   .mat-elevation-z8{
+    background-color: white;
     width: fit-content;
     flex: 0 0 auto;
     margin-right: 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
   }
+
+  ::ng-deep .mat-elevation-z8{
+    box-shadow: none !important;
+  }
+  
+  .mat-elevation-z8:hover {
+    background-color: #F1F1F1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
 
   .client-list-container{
     display: flex;
@@ -24,6 +52,30 @@
   
   .client-details-container {
     flex: 1;
+  }
+
+  .client-details, .client-info{
+    color : black;
+  }
+
+  .client-info, .client-details {
+    background-color: #fff;
+    padding: 16px;
+    margin-bottom: 16px;
+    height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 520px;
+    p{
+      text-align: left;
+    }
+  }
+
+  .client-info h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
   }
   
 
@@ -33,4 +85,52 @@
   
   .client-list-header{
     margin: 10px;
+    color:black;
+    font-weight: 300;
+  }
+
+  ::ng-deep .mdc-list-item__primary-text{
+    color: black !important;
+    font-weight: 200 !important;
+  }
+
+  ::ng-deep .mat-mdc-tab .mdc-tab__text-label {
+    color:black !important;
+    font-weight: 300  !important;
+  }
+
+  ::ng-deep .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    color: black !important;
+    font-weight: 300  !important;
+  }
+
+  ::ng-deep .mat-mdc-tab-group{
+    --mdc-tab-indicator-active-indicator-color: black !important;
+    --mat-tab-header-active-label-text-color: black !important;
+    --mat-tab-header-active-ripple-color: black !important;
+    --mat-tab-header-active-focus-label-text-color: black !important;
+    --mat-tab-header-active-hover-label-text-color: black !important;
+    --mat-tab-header-active-focus-indicator-color: black !important;
+    --mat-tab-header-active-hover-indicator-color: black !important;
+  }
+
+  ::ng-deep .mat-toolbar {
+    background: white !important;
+    border-radius: 20px !important;
+    color: black;
+    --mat-toolbar-container-text-color: black !important;
+  }
+
+  .client-details-header{
+    h2{
+      color: black;
+      font-weight: 300;
+    }
+  }
+  .btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: grey;
+    --bs-btn-border-color: #grey;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: black;
   }

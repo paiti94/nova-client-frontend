@@ -1,57 +1,54 @@
-<mat-toolbar color="primary">
-    <span>Client Workspace</span>
-  </mat-toolbar>
-  
-  <div class="workspace-container">
+ <div class="workspace-container">
     <div class="client-info">
       <h2>{{ client.first_name }} {{ client.last_name }}</h2>
     </div>
-  
-    <div class="section">
-      <mat-card>
-        <div class="task-head">
-          <mat-card-title>Client Tasks</mat-card-title>
-          <button mat-fab color="primary" (click)="createNewTask()" aria-label="add Task">
-            <mat-icon>add</mat-icon>
-          </button>
-        </div>
-        <mat-card-content>
-          <mat-tab-group>
-            <mat-tab label="Open">
-              <div *ngFor="let task of completedTasks" class="task" [class.closed]="task.status === 'closed'">
-                <mat-card class="task-card">
+    <div class="client-workspace">
+      <div class="section">
+        <mat-card>
+          <div class="task-head">
+            <mat-card-title>Client Tasks</mat-card-title>
+            <!-- <button mat-fab color="primary" (click)="createNewTask()" aria-label="add Task">
+              <mat-icon>add</mat-icon>
+            </button> -->
+          </div>
+          <mat-card-content>
+            <mat-tab-group>
+              <mat-tab label="Open">
+                <ng-container *ngFor="let task of completedTasks$|async" class="task" [class.closed]="task.status === 'Completed'">
+                    <mat-card class="task-card" *ngIf="task.status==='Not Started' || task.status === 'In Progress'">
+                     <mat-card-header>
+                       <mat-card-title>{{ task.name }}</mat-card-title>
+                     </mat-card-header>
+                     <mat-card-content>
+                       <p>{{ task.description }}</p>
+                       <p>Status: {{ task.status }}</p>
+                       <p>Due: {{ task.due_Date | date: 'yyyy-MM-dd' }}</p>
+                       <button mat-button color="primary" (click)="editTask(task)">Edit</button>
+                       <button mat-button color="accent" (click)="addComment(task)">Add Comment</button>
+                     </mat-card-content>
+                    </mat-card> 
+                 </ng-container>
+              </mat-tab>
+              <mat-tab label="Closed">
+                <ng-container *ngFor="let task of completedTasks$|async" class="task" [class.closed]="task.status === 'Completed'">
+                <mat-card class="task-card" *ngIf="task.status==='Completed'">
                   <mat-card-header>
-                    <mat-card-title>{{ task.name }}</mat-card-title>
+                     <mat-card-title>{{ task.name }}</mat-card-title>
                   </mat-card-header>
                   <mat-card-content>
-                    <p>{{ task.description }}</p>
-                    <p>Status: {{ task.status }}</p>
-                    <p>Due: {{ task.due_Date | date: 'yyyy-MM-dd' }}</p>
-                    <button mat-button color="primary" (click)="editTask(task)">Edit</button>
-                    <button mat-button color="accent" (click)="addComment(task)">Add Comment</button>
-                  </mat-card-content>
-                </mat-card>
-              </div>
-            </mat-tab>
-            <mat-tab label="Closed">
-              <div *ngFor="let task of openTasks" class="task" [class.closed]="task.status === 'closed'">
-                <mat-card class="task-card">
-                  <mat-card-header>
-                    <mat-card-title>{{ task.name }}</mat-card-title>
-                  </mat-card-header>
-                  <mat-card-content>
-                    <p>{{ task.description }}</p>
-                    <p>Status: {{ task.status }}</p>
-                    <p>Due: {{ task.due_Date | date: 'yyyy-MM-dd' }}</p>
-                    <button mat-button color="primary" (click)="editTask(task)">Edit</button>
-                    <button mat-button color="accent" (click)="addComment(task)">Add Comment</button>
-                  </mat-card-content>
-                </mat-card>
-              </div>
-            </mat-tab>
-          </mat-tab-group>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
+                      <p>{{ task.description }}</p>
+                      <p>Status: {{ task.status }}</p>
+                      <p>Due: {{ task.due_Date | date: 'yyyy-MM-dd' }}</p>
+                      <button mat-button color="primary" (click)="editTask(task)">Edit</button>
+                      <button mat-button color="accent" (click)="addComment(task)">Add Comment</button>
+                    </mat-card-content>
+                  </mat-card>
+                  </ng-container>
+              </mat-tab>
+            </mat-tab-group>
+          </mat-card-content>
+        </mat-card>
+      </div>
+   </div>
+ </div>
   

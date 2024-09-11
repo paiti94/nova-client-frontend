@@ -89,7 +89,7 @@ export class AddJobModalComponent {
   onSubmit() {
     this.addJob();
     this.dialogRef.close();
-   window.location.reload();
+  // window.location.reload();
   }
 
   onCancel() {

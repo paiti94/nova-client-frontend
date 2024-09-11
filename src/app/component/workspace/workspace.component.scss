@@ -1,7 +1,29 @@
 .workspace-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 16px;
+    .client-info {
+      background-color: #fff;
+      padding: 16px;
+      margin-bottom: 16px;
+      height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow-y: auto; /* Enable vertical scrolling */
+      max-height: 520px;
+      p{
+        text-align: left;
+      }
+    }
+
+    .folder-structure{
+      background-color: #fff;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      height: 510px;
+      display: flex;
+      justify-content: space-between;
+    }
+
     .section {
         margin-bottom: 20px;
     
@@ -42,6 +64,13 @@
             }
           }
         }
+      }
+      ::ng-deep .mat-mdc-card {
+        border-radius: 10px !important;
+      }
+      ::ng-deep .mat-mdc-card-header {
+        display: flow !important;
+        padding: 10px !important;
       }
   }
 
